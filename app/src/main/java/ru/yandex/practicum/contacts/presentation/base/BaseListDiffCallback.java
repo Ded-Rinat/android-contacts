@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import org.jetbrains.annotations.Nullable;
 
-import ru.yandex.practicum.contacts.presentation.main.ContactUi;
+//import ru.yandex.practicum.contacts.presentation.main.ContactUi;
 
 public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUtil.ItemCallback<T> {
 
@@ -16,13 +16,14 @@ public class BaseListDiffCallback<T extends ListDiffInterface<T>> extends DiffUt
         return newItem;
     }
 
+
     @Override
     public boolean areItemsTheSame(@NonNull T oldItem, @NonNull T newItem) {
-        return false;
+        return oldItem.theSameAs(newItem);
     }
 
     @Override
     public boolean areContentsTheSame(@NonNull T oldItem, @NonNull T newItem) {
-        return false;
+        return oldItem.equals(newItem);
     }
 }
